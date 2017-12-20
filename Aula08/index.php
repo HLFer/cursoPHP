@@ -11,6 +11,7 @@
         <?php
         
         require_once 'Lutador.php';
+        require_once 'Luta.php';
         
         $lutador = array();
         
@@ -25,9 +26,15 @@
         var_dump($lutador);
         echo "</pre>";
         */
-       $lutador[0]->apresentar(); 
-       $lutador[0]->status();
-       
+        //$lutador[0]->apresentar(); 
+        //$lutador[0]->status();
+        
+        $UEC01 = new Luta();
+        $UEC01->marcarLuta($lutador[0], $lutador[1]);
+        $UEC01->lutar();
+        $lutador[0]->status();
+        $lutador[1]->status();
+        
         ?>
     </body>
 </html>

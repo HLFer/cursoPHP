@@ -10,19 +10,55 @@ class Luta {
     private $aprovada;
     
     //Métodos
-    function marcarLuta(){
-        
+    function marcarLuta($lutador1, $lutador2){
+        if(($lutador1->getCategoria() === $lutador2->getCategoria()) && ($lutador1 != $lutador2)){
+            $this->setAprovada(true);
+            $this->setDesafiado($lutador1);
+            $this->setDesafiante($lutador2);
+        }else{
+            $this->setAprovada(false);
+            $this->setDesafiado(NULL);
+            $this->setDesafiante(NULL);
+        }
     }
     function lutar(){
-        
+        if($this->aprovada){
+            $this->desafiado->apresentar();
+            $this->desafiante->apresentar();
+            
+            $vencedor = random_int(0, 2);
+            
+            echo "<pre><h2>Detalhes da luta: </h2></pre>";
+            
+            switch ($vencedor) {
+                case 0://Empate
+                    echo "<pre>A luta terminou empatada!</pre>";
+                    $this->desafiado->empatarLuta();
+                    $this->desafiante->empatarLuta();
+                    break;
+                
+                case 1://Vitória do desafiado
+                    echo "<pre>Vitória do Lutador: " . $this->desafiado->getNome() . ".</pre>";
+                    $this->desafiado->ganharLuta();
+                    $this->desafiante->perderLuta();
+                    break;
+                
+                case 2://Vitória do desafiante
+                    echo "<pre>Vitória do Lutador: " . $this->desafiante->getNome() . ".</pre>";
+                    $this->desafiado->perderLuta();
+                    $this->desafiante->ganharLuta();    
+                    break;
+                
+                default:
+                    echo "<pre>ERRO!</pre>";
+                    break;
+            }
+            
+        }else{
+            echo "<pre>Esta luta não pode acontecer! Luta NÃO APROVADA!</pre>";
+        }
     }
     //Métodos Especiais
-    function __construct($desafiado, $desafiante, $rounds, $aprovada) {
-        $this->desafiado = $desafiado;
-        $this->desafiante = $desafiante;
-        $this->rounds = $rounds;
-        $this->aprovada = $aprovada;
-    }
     function getDesafiado() {
         return $this->desafiado;
     }

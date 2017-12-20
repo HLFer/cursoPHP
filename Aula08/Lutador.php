@@ -31,7 +31,7 @@ class Lutador {
         echo "<pre>Categoria: " . $this->getCategoria(). "</pre>";
         echo "<pre>Venceu: " . $this->getVitorioas() . " lutas.</pre>";
         echo "<pre>Perdeu: " . $this->getDerrotas() . " lutas.</pre>";
-        echo "<pre>Empatou: " . $this->getEmpates() . "lutas.</pre>";  
+        echo "<pre>Empatou: " . $this->getEmpates() . " lutas.</pre>";  
     }
     function ganharLuta(){
         $this->setVitorioas($this->getVitorioas() + 1);
