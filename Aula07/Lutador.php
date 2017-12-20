@@ -15,21 +15,23 @@ class Lutador {
     
     //Métodos
     function apresentar(){
-        echo "<pre>Lutador: </pre>" . $this->getLutador() . ".";
-        echo "<pre>País de origem: </pre>" . $this->getNacionalidade() . ".";
-        echo "<pre>Idade: </pre>" . $this->getIdade() . "anos.";
-        echo "<pre>Altura: </pre>" . $this->getAltura() . "m.";
-        echo "<pre>Pesando: </pre>" . $this->getPeso() . "quilos.";
-        echo "<pre>Venceu: </pre>" . $this->getVitorioas() . "lutas.";
-        echo "<pre>Perdeu: </pre>" . $this->getDerrotas() . "lutas.";
-        echo "<pre>Empatou: </pre>" . $this->getEmpates() . "lutas.";
+        echo "<pre><h2>Apresentação: </h2></pre>";
+        echo "<pre>Lutador: " . $this->getNome() . ".</pre>";
+        echo "<pre>País de origem: " . $this->getNacionalidade() . ".</pre>";
+        echo "<pre>Idade: " . $this->getIdade() . " anos.</pre>";
+        echo "<pre>Altura: " . $this->getAltura() . " m.</pre>";
+        echo "<pre>Pesando: " . $this->getPeso() . " quilos.</pre>";
+        echo "<pre>Venceu: " . $this->getVitorioas() . " lutas.</pre>";
+        echo "<pre>Perdeu: " . $this->getDerrotas() . " lutas.</pre>";
+        echo "<pre>Empatou: " . $this->getEmpates() . " lutas.</pre>";
     }
     function status(){
-        echo "<pre>Lutador: </pre>" . $this->getLutador() . ".";
-        echo "<pre>Categoria: </pre>" . $this->getCategoria();
-        echo "<pre>Venceu: </pre>" . $this->getVitorioas() . "lutas.";
-        echo "<pre>Perdeu: </pre>" . $this->getDerrotas() . "lutas.";
-        echo "<pre>Empatou: </pre>" . $this->getEmpates() . "lutas.";  
+        echo "<pre><h2>Status do Lutador: </h2></pre>";
+        echo "<pre>Lutador: " . $this->getNome() . ".</pre>";
+        echo "<pre>Categoria: " . $this->getCategoria(). "</pre>";
+        echo "<pre>Venceu: " . $this->getVitorioas() . " lutas.</pre>";
+        echo "<pre>Perdeu: " . $this->getDerrotas() . " lutas.</pre>";
+        echo "<pre>Empatou: " . $this->getEmpates() . "lutas.</pre>";  
     }
     function ganharLuta(){
         $this->setVitorioas($this->getVitorioas() + 1);
@@ -111,19 +113,19 @@ class Lutador {
 
     private function setCategoria() {
         if($this->peso < 52.2){
-            $this->categoria = "<pre>Inválido! Lutador abaixo do peso permitido</pre>";
+            $this->categoria = "Inválido! Lutador abaixo do peso permitido.";
         }
         else if($this->peso <= 70.3){
-            $this->categoria = "<pre>Peso Leve.</pre>";
+            $this->categoria = "Peso Leve.";
         }
         else if($this->peso <= 83.9){
-            $this->categoria = "<pre>Peso Médio.</pre>";
+            $this->categoria = "Peso Médio.";
         }
         else if($this->peso <= 120.2){
-            $this->categoria = "<pre>Peso Pesado.</pre>";
+            $this->categoria = "Peso Pesado.";
         }
         else{
-            $this->categoria = "<pre>Inválido! Lutador acima do peso permitido.</pre>";
+            $this->categoria = "Inválido! Lutador acima do peso permitido.";
         }
     }
 
