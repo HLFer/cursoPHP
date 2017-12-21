@@ -3,8 +3,7 @@ require_once 'Pessoa.php';
 
 class Aluno extends Pessoa{
     
-    private $matricula;
-    private $curso;
+    private $matricula, $curso;
     
     function cancelarMatricula(){
         echo "<pre>A Matrícula será cancelada.</pre>";
